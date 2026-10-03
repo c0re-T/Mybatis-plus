@@ -9,12 +9,14 @@ MyBatis-Plus（简称 MP）是 MyBatis 的增强工具，只做增强不做改�
 | 项 | 版本 |
 | --- | --- |
 | JDK | 21 |
-| Spring Boot | 3.5.8 |
+| Spring Boot | 3.5.8（mp-01 ~ mp-03）／ 3.2.6（mp-04） |
 | MyBatis-Plus | 3.5.17（`mybatis-plus-spring-boot3-starter`） |
 | MyBatis-Plus 分页插件 | `mybatis-plus-jsqlparser` 3.5.17（仅 mp-04） |
 | Knife4j | `knife4j-openapi3-jakarta-spring-boot-starter` 4.5.0（仅 mp-04） |
 | Hutool | 5.8.42（仅 mp-04） |
 | MySQL | 8.0+ |
+
+mp-04 之所以把 Spring Boot 降到 3.2.6：Knife4j 4.5.0 自带的 springdoc-openapi 是 2.3.0，属于 Spring Boot 3.2 那一代的产品，`mp-04/pom.xml` 按这条适配线把父工程锁在 3.2.x。mp-01 ~ mp-03 不引 Knife4j，仍然是 3.5.8。
 
 ## 目录结构
 
@@ -92,6 +94,8 @@ MyBatis-plus/
 ## mp-04 接口清单
 
 运行 `Mp04Application`（端口 8080），打开 `http://localhost:8080/doc.html` 查看 Knife4j 文档。
+
+`mp-04` 已在本机实测：`mvn spring-boot:run` 可正常启动，`/doc.html`、`/v3/api-docs`、`/api/cars/{id}`、`/api/cars/conditions` 均返回 200，`status` 输出中文枚举值、`owner` 由 JSON 处理器还原成对象。端口 8080 若已被占用（例如 IDEA 里已有一个实例），启动会停在 `Port 8080 was already in use`，需要先结束旧实例或加 `-Dserver.port=8081`，这与 Knife4j 无关。
 
 | 方法 | 路径 | 说明 |
 | --- | --- | --- |
