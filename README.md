@@ -147,7 +147,7 @@ flowchart TD
 
 ## 数据与署名说明
 
-- 代码、SQL 脚本和学习笔记中出现的姓名（张三、李四、王五、赵六）、车牌号、邮箱都是虚拟示例值，不对应任何真实人物或车辆。
+- 代码和学习笔记中出现的姓名（张三、李四、王五、赵六）、车牌号、邮箱都是虚拟示例值，不对应任何真实人物或车辆；`sql/mybatis-plus.sql` 只包含表结构，没有数据。
 - `MyBatis-Plus概述.md` 中的 Knife4j 配置片段使用虚拟署名（`张三` / `zhangsan@example.com`）；mp-04 的 `config/Knife4jConfig.java` 保留本仓库作者的署名 `老汤` / `ittxf@126.com`，这一处文档与代码取值不同。
 - 学习笔记里的代码片段包名为 `com.jkweilai.mp.*`，本工程实际包名为 `com.ittxf.mp.*`，抄写片段时需替换。
 
