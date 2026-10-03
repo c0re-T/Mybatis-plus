@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ittxf.mp.mapper.CarMapper">
+    <!--ew 获取的是 条件构造器 对象本身-->
+    <!--ew对象中有一个固定的属性，可以获取sql语句的片段。属性是：customSqlSegment。不能随便写-->
+    <update id="updateGuidePrice">
+        update t_car set guide_price = guide_price + #{guidePrice} ${ew.customSqlSegment}
+    </update>
+
+    <update id="updateByBrand">
+        update t_car set guide_price = guide_price + #{guidePrice}
+        where brand = #{brand}
+    </update>
+
+    <select id="selectByCondition" resultType="Car">
+        select id, car_num, brand, guide_price from t_car
+        where brand like CONCAT('%', #{brand}, '%')
+          and guide_price > #{guidePrice}
+    </select>
+</mapper>

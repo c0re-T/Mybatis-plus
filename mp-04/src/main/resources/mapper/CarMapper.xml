@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ittxf.mp.mapper.CarMapper">
+
+    <resultMap id="BaseResultMap" type="com.ittxf.mp.entity.Car">
+            <id property="id" column="id" />
+            <result property="carNum" column="car_num" />
+            <result property="brand" column="brand" />
+            <result property="guidePrice" column="guide_price" />
+            <result property="produceTime" column="produce_time" />
+            <result property="carType" column="car_type" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,car_num,brand,guide_price,produce_time,car_type
+    </sql>
+    <update id="reductionPrice">
+        update t_car set guide_price = guide_price - #{price}
+        where id = #{id}
+    </update>
+</mapper>

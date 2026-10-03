@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: mp-03
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mybatis-plus
+    username: root
+    password: 123456
+
+# MP的配置
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    cache-enabled: true
+  global-config:
+    db-config:
+      id-type: auto
+      update-strategy: not_null
+  type-aliases-package: com.ittxf.mp.entity
+  mapper-locations:
+    - classpath:/mapper/*.xml

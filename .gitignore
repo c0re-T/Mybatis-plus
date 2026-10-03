@@ -1,0 +1,16 @@
+# Maven 构建产物
+target/
+
+# IDEA / Eclipse 配置
+.idea/
+*.iml
+.vscode/
+out/
+
+# 日志与临时文件
+*.log
+*.tmp
+
+# 系统文件
+.DS_Store
+Thumbs.db
